@@ -12,7 +12,7 @@ This will build a container for [FreePBX](https://www.freepbx.org) - A Voice ove
 Upon starting this image it will give you a turn-key PBX system for SIP calling.
 
 * Latest release FreePBX 15
-* Latest release Asterisk 17
+* Asterisk 16.9.0 w/Cisco Patch
 * Choice of running embedded database or modifies to support external MariaDB Database and only require one DB.
 * Supports data persistence
 * Fail2Ban installed to block brute force attacks
