@@ -1,5 +1,5 @@
 FROM tiredofit/nodejs:10-debian-latest
-LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
+LABEL maintainer="JD"
 
 ### Set defaults
 ENV ASTERISK_VERSION=16.9.0 \
@@ -227,6 +227,7 @@ RUN echo "Package: libxml2*" > /etc/apt/preferences.d/libxml2 && \
                           --disable codec_g729a && \
     make && \
     make install && \
+    make samples && \
     make install-headers && \
     make config && \
     \
