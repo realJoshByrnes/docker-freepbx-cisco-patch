@@ -2,7 +2,7 @@ FROM tiredofit/nodejs:10-debian-latest
 LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
 
 ### Set defaults
-ENV ASTERISK_VERSION=17.9.3 \
+ENV ASTERISK_VERSION=16.9.0 \
     BCG729_VERSION=1.0.4 \
     DONGLE_VERSION=20200610 \
     G72X_CPUHOST=penryn \
@@ -175,8 +175,10 @@ RUN echo "Package: libxml2*" > /etc/apt/preferences.d/libxml2 && \
 ### Build Asterisk
     cd /usr/src && \
     mkdir -p asterisk && \
+    curl -O https://raw.githubusercontent.com/usecallmanagernz/patches/master/asterisk/cisco-usecallmanager-${ASTERISK_VERSION}.patch && \
     curl -sSL http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar xvfz - --strip 1 -C /usr/src/asterisk && \
     cd /usr/src/asterisk/ && \
+    patch -p1 < ../cisco-usecallmanager-${ASTERISK_VERSION}.patch && \
     make distclean && \
     contrib/scripts/get_mp3_source.sh && \
     cd /usr/src/asterisk && \
