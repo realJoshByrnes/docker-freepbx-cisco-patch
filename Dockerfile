@@ -2,7 +2,7 @@ FROM tiredofit/nodejs:10-debian-latest
 LABEL maintainer="JD"
 
 ### Set defaults
-ENV ASTERISK_VERSION=16.9.0 \
+ENV ASTERISK_VERSION=18.2.2 \
     BCG729_VERSION=1.0.4 \
     DONGLE_VERSION=20200610 \
     G72X_CPUHOST=penryn \
